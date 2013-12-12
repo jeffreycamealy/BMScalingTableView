@@ -11,5 +11,6 @@
 @interface BMScalingTableView : UIView
 
 - (void)addView:(UIView *)view;
+- (void)removeViewAtIndex:(NSUInteger)index;
 
 @end

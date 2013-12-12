@@ -72,7 +72,7 @@
 }
 
 - (void)removeButtonPressed {
-    
+    [scalingTableView removeViewAtIndex:1];
 }
 
 @end

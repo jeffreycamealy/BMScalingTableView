@@ -43,6 +43,15 @@
     }];
 }
 
+- (void)removeViewAtIndex:(NSUInteger)index {
+    [views removeObjectAtIndex:index];
+    
+    [self relayoutConstraints];
+    [UIView animateWithDuration:1 animations:^{
+        [self layoutIfNeeded];
+    }];
+}
+
 - (void)relayoutConstraints {
     int i = 0;
     UIView *previousView = nil;
@@ -77,15 +86,5 @@
         i++;
     }
 }
-
-
-//- (void)updateConstraints {
-//    [super updateConstraints];
-//    
-////    for (UIView *view in views) {
-////        [view removeConstraints:view.constraints];
-////    }
-//    
-//}
 
 @end
