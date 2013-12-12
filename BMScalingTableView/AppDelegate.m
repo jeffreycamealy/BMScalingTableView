@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TestingVC.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupWindow];
     [self setupRootVC];
+    
     return YES;
 }
 
@@ -27,7 +29,7 @@
 }
 
 - (void)setupRootVC {
-    
+    self.window.rootViewController = [TestingVC new];
 }
 
 @end
