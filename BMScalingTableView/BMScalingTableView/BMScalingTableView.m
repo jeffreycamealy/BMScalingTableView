@@ -26,11 +26,18 @@
 }
 
 - (void)addView:(UIView *)view {
-    [views addObject:view];
-//    [self addSubview:view];
+    [views insertObject:view atIndex:0];
+    
+    // Set Width
+    [self addSubview:view];
+    [view makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.right);
+        make.left.equalTo(self.left);
+    }];
+    [self layoutIfNeeded];
+    
+    // Animate Vertical Spacing/Alignment
     [self relayoutConstraints];
-//    [self setNeedsUpdateConstraints];
-//    [self setNeedsLayout];
     [UIView animateWithDuration:1 animations:^{
         [self layoutIfNeeded];
     }];
@@ -40,7 +47,7 @@
     int i = 0;
     UIView *previousView = nil;
     for (UIView *view in views) {
-//        [view removeConstraints:view.constraints];
+        // Reset Constraints
         [view removeFromSuperview];
         [self addSubview:view];
         
